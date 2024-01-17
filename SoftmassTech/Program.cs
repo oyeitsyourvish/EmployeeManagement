@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SoftmassTech.Data;
+using SoftmassTech.Models.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,13 @@ builder.Services.AddControllersWithViews();
 //Register DbContext.
 var connectionString = builder.Configuration.GetConnectionString("EmpMngtConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>options.UseSqlServer(connectionString));
+
+
+// We also call this as LOOSE COUPLING.
+// Register Department Services
+builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+// Register Employee Services
+builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 
 
