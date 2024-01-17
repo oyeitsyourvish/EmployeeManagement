@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SoftmassTech.Data;
-using SoftmassTech.Models.Repositories;
+using SoftmassTech.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
