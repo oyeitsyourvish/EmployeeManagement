@@ -14,11 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftmassTech")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37a02f5b76e2517706fbaa4da80920ff8436141d")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+733cdcbcd95b0bc99e6ddf32a9c80a839be5b211")]
->>>>>>> branch7
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+83329176c0a1dac9dda5673f21228be2cad92adb")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftmassTech")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftmassTech")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
