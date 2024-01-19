@@ -30,7 +30,13 @@ namespace SoftmassTech.Controllers
         [HttpPost]
         public IActionResult Add(EmployeeViewModel model)
         {
-            return View();
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            //insert data in database.
+            return View(model);
         }
     }
 }

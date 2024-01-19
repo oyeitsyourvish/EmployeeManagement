@@ -20,7 +20,14 @@ namespace SoftmassTech.Controllers
         [HttpPost]
         public IActionResult Add(DepartmentViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model); // it will show the error
+
+            }
+
+            // Insert to the database
+            return View(model);
         }
     }
 }
