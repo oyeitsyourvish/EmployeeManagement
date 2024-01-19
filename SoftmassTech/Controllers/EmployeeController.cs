@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using SoftmassTech.Models;
 using SoftmassTech.ViewModels;
 
@@ -15,7 +16,12 @@ namespace SoftmassTech.Controllers
         [HttpGet] //when we clicked on add employee this method will be called.
         public IActionResult Add()
         {
-
+            List<Department> departments = new List<Department>
+            {
+                new Department { DepartmentId = 1, Name = "HR" },
+                new Department { DepartmentId = 1, Name = "Data Analyst" }
+            };
+            ViewBag.Departments = new SelectList(departments, "DepartmentId", "Name");
           
             return View();
         }
