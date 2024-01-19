@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SoftmassTech.Models;
+using SoftmassTech.ViewModels;
 
 namespace SoftmassTech.Controllers
 {
@@ -7,14 +9,20 @@ namespace SoftmassTech.Controllers
         public IActionResult Index()
         {
             return View();
-        }public IActionResult Add()
+        }
+
+
+        [HttpGet] //when we clicked on add employee this method will be called.
+        public IActionResult Add()
         {
+
+          
             return View();
         }
 
 
         [HttpPost]
-        public IActionResult Add(string firstName,string lastName)
+        public IActionResult Add(EmployeeViewModel model)
         {
             return View();
         }
