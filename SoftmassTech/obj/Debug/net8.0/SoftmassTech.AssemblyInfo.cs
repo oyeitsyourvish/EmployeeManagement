@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SoftmassTech")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee9a7e769866ffbea20663e7db0cbc7752a4a86a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37a02f5b76e2517706fbaa4da80920ff8436141d")]
 [assembly: System.Reflection.AssemblyProductAttribute("SoftmassTech")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SoftmassTech")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
