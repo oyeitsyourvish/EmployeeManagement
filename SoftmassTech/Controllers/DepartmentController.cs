@@ -7,7 +7,15 @@ namespace SoftmassTech.Controllers
         public IActionResult Index()
         {
             return View();
-        }public IActionResult Add()
+        }
+        
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(string name)
         {
             return View();
         }
