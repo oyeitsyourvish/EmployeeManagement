@@ -1,10 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SoftmassTech.Repositories;
 using SoftmassTech.ViewModels;
 
 namespace SoftmassTech.Controllers
 {
     public class DepartmentController : Controller
     {
+        private readonly IDepartmentRepository _departmentRepository;
+        public DepartmentController(IDepartmentRepository departmentRepository)
+        {
+            _departmentRepository = departmentRepository;
+
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,7 +25,7 @@ namespace SoftmassTech.Controllers
         } 
 
         [HttpPost]
-        public IActionResult Add(DepartmentViewModel model)
+        public async Task<IActionResult> Add(DepartmentViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -27,7 +34,10 @@ namespace SoftmassTech.Controllers
             }
 
             // Insert to the database
-            return View(model);
+            await  _departmentRepository.AddAsync(model);
+
+            //Redirect to list all department.
+            return RedirectToAction("Index","Department");
         }
     }
 }
