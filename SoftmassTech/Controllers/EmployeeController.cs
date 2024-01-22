@@ -1,12 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SoftmassTech.Models;
+using SoftmassTech.Repositories;
 using SoftmassTech.ViewModels;
 
 namespace SoftmassTech.Controllers
 {
     public class EmployeeController : Controller
     {
+        private readonly IEmployeeRepository _employeeRepository;
+        public EmployeeController(IEmployeeRepository employeeRepository)
+        {
+            _employeeRepository = employeeRepository;
+            
+        }
         public IActionResult Index()
         {
             return View();
@@ -14,13 +21,9 @@ namespace SoftmassTech.Controllers
 
 
         [HttpGet] //when we clicked on add employee this method will be called.
-        public IActionResult Add()
+        public async Task <IActionResult> Add()
         {
-            List<Department> departments = new List<Department>
-            {
-                new Department { DepartmentId = 1, Name = "HR" },
-                new Department { DepartmentId = 1, Name = "Data Analyst" }
-            };
+            var departments = await _employeeRepository.GetAllDepartments();
             ViewBag.Departments = new SelectList(departments, "DepartmentId", "Name");
           
             return View();
@@ -28,15 +31,21 @@ namespace SoftmassTech.Controllers
 
 
         [HttpPost]
-        public IActionResult Add(EmployeeViewModel model)
+        public async Task <IActionResult> Add(EmployeeViewModel model)
         {
 
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
+
+
             //insert data in database.
-            return View(model);
+            await _employeeRepository.AddAsync(model);
+
+            //redirect to list all page
+            return RedirectToAction("Index","Employee");
+
         }
     }
 }
