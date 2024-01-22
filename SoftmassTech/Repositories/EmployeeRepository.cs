@@ -1,5 +1,7 @@
-﻿using SoftmassTech.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SoftmassTech.Data;
 using SoftmassTech.Models;
+using SoftmassTech.ViewModels;
 
 namespace SoftmassTech.Repositories
 {
@@ -17,9 +19,23 @@ namespace SoftmassTech.Repositories
         }
 
         // Implementation of IEmployeeRepository Interface
-        public Task AddAsync(Employee employee)
+        public async Task AddAsync(EmployeeViewModel employee)
         {
-            throw new NotImplementedException();
+            var newEmployee = new Employee()
+            {
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                DateOfBirth = employee.DateOfBirth,
+                Phone =employee.PhoneNumber,
+                Gender = employee.Gender,
+                Email = employee.Email,
+                Address = employee.Address,
+                DepartmentId = employee.DepartmentId
+
+            };
+
+            await _dbContext.Employees.AddAsync(newEmployee);
+            await _dbContext.SaveChangesAsync();
         }
 
         public Task DeleteAsync(int id)
@@ -40,6 +56,11 @@ namespace SoftmassTech.Repositories
         public Task UpdateAsync(Employee employee)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<Department>> GetAllDepartments()
+        {
+            return await _dbContext.Departments.ToListAsync();
         }
     }
 }

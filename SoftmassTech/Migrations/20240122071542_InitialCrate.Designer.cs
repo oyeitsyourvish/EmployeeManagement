@@ -12,8 +12,8 @@ using SoftmassTech.Data;
 namespace SoftmassTech.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240118092950_IntialCreate")]
-    partial class IntialCreate
+    [Migration("20240122071542_InitialCrate")]
+    partial class InitialCrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
