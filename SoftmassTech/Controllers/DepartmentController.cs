@@ -29,6 +29,7 @@ namespace SoftmassTech.Controllers
         {
             if (!ModelState.IsValid)
             {
+
                 return View(model); // it will show the error
 
             }
