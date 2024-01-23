@@ -24,7 +24,7 @@ namespace SoftmassTech.Controllers
             if(!String.IsNullOrEmpty(searchString))
             {
                 employees =employees.Where(n=> n.FirstName.Contains(searchString)
-                || n.LastName.Contains(searchString)).ToList();
+                || n.LastName.Contains(searchString)|| n.Gender.Contains(searchString) || n.PhoneNumber.Contains(searchString)).ToList();
             }
 
             return View(employees);
