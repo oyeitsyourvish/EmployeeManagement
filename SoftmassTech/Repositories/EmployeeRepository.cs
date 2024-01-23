@@ -38,9 +38,11 @@ namespace SoftmassTech.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            Employee employee = await _dbContext.Employees.FindAsync(id);
+            _dbContext.Employees.Remove(employee);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<List<EmployeeViewModel>> GetAllAsync()

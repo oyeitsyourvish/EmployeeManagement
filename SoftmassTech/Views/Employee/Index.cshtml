@@ -53,7 +53,7 @@
                             <td>@employee.Address</td>
                             <td>@employee.IsActive</td>
                             <td><a class="btn btn-dark" asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a></td>
-                            <td><a class="btn btn-danger">Delete</a></td>
+                            <td><a class="btn btn-danger" asp-controller="Employee" asp-action="Delete" asp-route-id="@employee.EmployeeId" onclick="return confirm('Click on OK to delete')">Delete</a></td>
                         </tr>
                     }
 

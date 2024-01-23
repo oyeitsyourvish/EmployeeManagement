@@ -9,7 +9,7 @@ namespace SoftmassTech.Repositories
         Task<List<EmployeeViewModel>> GetAllAsync();
         Task AddAsync(EmployeeViewModel employee);
         Task UpdateAsync(EmployeeViewModel employee);
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int Id);
 
         Task<List<Department>> GetAllDepartments();
 

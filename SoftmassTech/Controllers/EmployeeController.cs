@@ -80,6 +80,17 @@ namespace SoftmassTech.Controllers
             // Redirect to List all department page
             return RedirectToAction("Index", "Employee");
         }
+
+
+        public async Task <IActionResult> Delete(int id)
+        {
+            // Delete data from database.
+            await _employeeRepository.DeleteAsync(id);
+
+            //Redirect to all employee.
+            return RedirectToAction("Index", "Employee");
+
+        }
         
     }
 }
