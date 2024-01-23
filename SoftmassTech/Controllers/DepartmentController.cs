@@ -42,5 +42,17 @@ namespace SoftmassTech.Controllers
             //Redirect to list all department.
             return RedirectToAction("Index","Department");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            //Delete Department data from db.
+            await _departmentRepository.DeleteAsync(id);
+
+            //after deleting redirect
+            return RedirectToAction("Index","Department");
+
+
+        }
     }
 }

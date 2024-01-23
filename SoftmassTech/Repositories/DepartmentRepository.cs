@@ -65,9 +65,11 @@ namespace SoftmassTech.Repositories
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int Id)
         {
-            throw new NotImplementedException();
+            Department department = await _dbContext.Departments.FindAsync(Id);
+            _dbContext.Departments.Remove(department);
+            await _dbContext.SaveChangesAsync();
         }
 
         Task<Department> IDepartmentRepository.GetByIdAsync(int id)
@@ -84,12 +86,7 @@ namespace SoftmassTech.Repositories
               await _dbContext.SaveChangesAsync();
           } */
 
-        /*  public async Task DeleteAsync(int Id)
-          {
-              Department department = await _dbContext.Departments.FindAsync(Id);
-              _dbContext.Departments.Remove(department);
-              await _dbContext.SaveChangesAsync();
-          } */
+         
 
 
 
