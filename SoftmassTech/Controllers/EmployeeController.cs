@@ -52,9 +52,16 @@ namespace SoftmassTech.Controllers
 
         //GET: Employee/Edit
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task <IActionResult> Edit(int id)
         {
-            return View();
+            //Fetch department dropdown .
+            var departments = await _employeeRepository.GetAllDepartments();
+            ViewBag.Departments = new SelectList(departments, "DepartmentId", "Name");
+
+            //Fetch employee details
+            var employee= await _employeeRepository.GetByIdAsync(id);
+
+            return View(employee);
         }
 
 

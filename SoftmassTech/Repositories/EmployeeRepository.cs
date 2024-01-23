@@ -67,9 +67,24 @@ namespace SoftmassTech.Repositories
             return employeeViewModels;
         }
 
-        public Task<Employee> GetByIdAsync(int id)
+        public async Task<EmployeeViewModel> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+
+
+            var employee = await _dbContext.Employees.FindAsync(id);
+            var employeeViewModel = new EmployeeViewModel()
+            {
+                EmployeeId =employee.EmployeeId,
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                DateOfBirth = employee.DateOfBirth,
+                Gender = employee.Gender,
+                Email = employee.Email,
+                PhoneNumber=employee.Phone,
+                Address = employee.Address,
+                IsActive=employee.isActive
+            };
+            return employeeViewModel;
         }
 
         public Task UpdateAsync(Employee employee)
@@ -81,5 +96,7 @@ namespace SoftmassTech.Repositories
         {
             return await _dbContext.Departments.ToListAsync();
         }
+
+       
     }
 }
