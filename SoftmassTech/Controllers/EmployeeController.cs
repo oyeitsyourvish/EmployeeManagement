@@ -50,7 +50,7 @@ namespace SoftmassTech.Controllers
 
         }
 
-        //GET: Employee/Edit
+        //GET:when we click on edit 
         [HttpGet]
         public async Task <IActionResult> Edit(int id)
         {
@@ -66,12 +66,19 @@ namespace SoftmassTech.Controllers
 
 
 
-        //POST: Employee/Edit
+        //POST: when we click on submit edit data.
         [HttpPost]
-        public IActionResult Edit()
+        public async Task <IActionResult> Edit(EmployeeViewModel employee)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(employee); // Return to the form with validation errors
+            }
+            //Update the database with modified details
+            await _employeeRepository.UpdateAsync(employee);
 
-            return View();
+            // Redirect to List all department page
+            return RedirectToAction("Index", "Employee");
         }
         
     }

@@ -87,9 +87,19 @@ namespace SoftmassTech.Repositories
             return employeeViewModel;
         }
 
-        public Task UpdateAsync(Employee employee)
+        public async Task UpdateAsync(EmployeeViewModel employeeUpdated)
         {
-            throw new NotImplementedException();
+            var employee = await _dbContext.Employees.FindAsync(employeeUpdated.EmployeeId);
+            employee.FirstName = employeeUpdated.FirstName;
+            employee.LastName = employeeUpdated.LastName;
+            employee.Email = employeeUpdated.Email;
+            employee.DateOfBirth = employeeUpdated.DateOfBirth;
+            employee.Phone = employeeUpdated.PhoneNumber;
+            employee.Address = employeeUpdated.Address;
+            employee.DepartmentId = employeeUpdated.DepartmentId;
+            employee.isActive = employeeUpdated.IsActive;
+            _dbContext.Employees.Update(employee);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<List<Department>> GetAllDepartments()
@@ -97,6 +107,6 @@ namespace SoftmassTech.Repositories
             return await _dbContext.Departments.ToListAsync();
         }
 
-       
+      
     }
 }
