@@ -12,9 +12,11 @@ namespace SoftmassTech.Controllers
             _departmentRepository = departmentRepository;
 
         }
-        public IActionResult Index()
+        public async Task <IActionResult> Index()
         {
-            return View();
+            //fetching data from database
+            var departments = await _departmentRepository.GetAllAsync();
+            return View(departments);
         }
 
 

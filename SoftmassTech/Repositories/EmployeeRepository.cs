@@ -43,9 +43,28 @@ namespace SoftmassTech.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<Employee>> GetAllAsync()
+        public async Task<List<EmployeeViewModel>> GetAllAsync()
         {
-            throw new NotImplementedException();
+           List<Employee>employees=await _dbContext.Employees.ToListAsync();
+            List<EmployeeViewModel> employeeViewModels = new List<EmployeeViewModel>();
+            foreach (var employee in employees)
+            {
+                var employeeViewModel = new EmployeeViewModel()
+                {
+                    EmployeeId = employee.EmployeeId,
+                    FirstName = employee.FirstName,
+                    LastName = employee.LastName,
+                    DateOfBirth= employee.DateOfBirth,
+                    Gender  = employee.Gender,
+                    Email = employee.Email,
+                    PhoneNumber=employee.Phone,
+                    Address = employee.Address,
+                    IsActive=employee.isActive
+
+                };
+                employeeViewModels.Add(employeeViewModel);
+            }
+            return employeeViewModels;
         }
 
         public Task<Employee> GetByIdAsync(int id)

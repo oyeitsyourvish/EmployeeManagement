@@ -26,7 +26,11 @@ namespace SoftmassTech.Repositories
             return departmentViewModel;
         }
 
-        public async Task<List<DepartmentViewModel>> GetAllAsync()
+
+
+      
+
+        public async Task<List<DepartmentViewModel>>GetAllAsync()
         {
             var departments = await _dbContext.Departments.ToListAsync();
             List<DepartmentViewModel> departmentViewModels = new List<DepartmentViewModel>();
@@ -55,20 +59,15 @@ namespace SoftmassTech.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(DepartmentViewModel departmentUpdated)
-        {
-            var department = await _dbContext.Departments.FindAsync(departmentUpdated.DepartmentId);
-            department.Name = departmentUpdated.Name;
 
-            _dbContext.Departments.Update(department);
-            await _dbContext.SaveChangesAsync();
+        public Task UpdateAsync(Department department)
+        {
+            throw new NotImplementedException();
         }
 
-        public async Task DeleteAsync(int Id)
+        public Task DeleteAsync(int id)
         {
-            Department department = await _dbContext.Departments.FindAsync(Id);
-            _dbContext.Departments.Remove(department);
-            await _dbContext.SaveChangesAsync();
+            throw new NotImplementedException();
         }
 
         Task<Department> IDepartmentRepository.GetByIdAsync(int id)
@@ -76,19 +75,28 @@ namespace SoftmassTech.Repositories
             throw new NotImplementedException();
         }
 
-        Task<List<Department>> IDepartmentRepository.GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
+        /*  public async Task UpdateAsync(DepartmentViewModel departmentUpdated)
+          {
+              var department = await _dbContext.Departments.FindAsync(departmentUpdated.DepartmentId);
+              department.Name = departmentUpdated.Name;
 
-        public Task AddAsync(Department department)
-        {
-            throw new NotImplementedException();
-        }
+              _dbContext.Departments.Update(department);
+              await _dbContext.SaveChangesAsync();
+          } */
 
-        public Task UpdateAsync(Department department)
-        {
-            throw new NotImplementedException();
-        }
+        /*  public async Task DeleteAsync(int Id)
+          {
+              Department department = await _dbContext.Departments.FindAsync(Id);
+              _dbContext.Departments.Remove(department);
+              await _dbContext.SaveChangesAsync();
+          } */
+
+
+
+
+
+
+
+
     }
 }

@@ -14,9 +14,11 @@ namespace SoftmassTech.Controllers
             _employeeRepository = employeeRepository;
             
         }
-        public IActionResult Index()
+        public async Task <IActionResult> Index()
         {
-            return View();
+            //Fetching data from database
+            var employees = await _employeeRepository.GetAllAsync();
+            return View(employees);
         }
 
 
