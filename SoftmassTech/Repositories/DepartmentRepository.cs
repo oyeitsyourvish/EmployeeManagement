@@ -60,40 +60,25 @@ namespace SoftmassTech.Repositories
         }
 
 
-        public Task UpdateAsync(Department department)
-        {
-            throw new NotImplementedException();
-        }
+		public async Task UpdateAsync(DepartmentViewModel departmentUpdated)
+		{
+			var department = await _dbContext.Departments.FindAsync(departmentUpdated.DepartmentId);
+			department.Name = departmentUpdated.Name;
 
-        public async Task DeleteAsync(int Id)
+			_dbContext.Departments.Update(department);
+			await _dbContext.SaveChangesAsync();
+		}
+
+		public async Task DeleteAsync(int Id)
         {
             Department department = await _dbContext.Departments.FindAsync(Id);
             _dbContext.Departments.Remove(department);
             await _dbContext.SaveChangesAsync();
         }
 
-        Task<Department> IDepartmentRepository.GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        /*  public async Task UpdateAsync(DepartmentViewModel departmentUpdated)
-          {
-              var department = await _dbContext.Departments.FindAsync(departmentUpdated.DepartmentId);
-              department.Name = departmentUpdated.Name;
-
-              _dbContext.Departments.Update(department);
-              await _dbContext.SaveChangesAsync();
-          } */
-
-         
-
-
-
-
-
-
-
-
-    }
+		public Task UpdateAsync(Department department)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

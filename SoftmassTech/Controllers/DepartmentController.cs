@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SoftmassTech.Models;
 using SoftmassTech.Repositories;
 using SoftmassTech.ViewModels;
 
@@ -43,7 +44,39 @@ namespace SoftmassTech.Controllers
             return RedirectToAction("Index","Department");
         }
 
-        [HttpGet]
+
+		// after clicking on edit
+		[HttpGet]
+		public async Task <IActionResult> Edit(int id)
+		{
+            //Fetching data 
+			var department = await _departmentRepository.GetByIdAsync(id);
+			return View(department);
+		}
+
+		// after the clicking on submit
+		[HttpPost]
+		public async Task <IActionResult> Edit(DepartmentViewModel department)
+		{
+
+			if (!ModelState.IsValid)
+			{
+				// If the model is not valid, return the view with the validation errors
+				return View(department);
+			}
+
+            //Update the database with modified details
+            await _departmentRepository.UpdateAsync(department);
+
+			// Redirect to List all department page
+			return RedirectToAction("Index", "Department");
+
+			
+		}
+
+
+
+		[HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             //Delete Department data from db.
