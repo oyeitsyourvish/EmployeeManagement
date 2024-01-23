@@ -52,6 +52,8 @@
                             <td>@employee.PhoneNumber</td>
                             <td>@employee.Address</td>
                             <td>@employee.IsActive</td>
+                            <td><a class="btn btn-dark" asp-controller="Employee" asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a></td>
+                            <td><a class="btn btn-danger">Delete</a></td>
                         </tr>
                     }
 

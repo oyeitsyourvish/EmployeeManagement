@@ -49,5 +49,23 @@ namespace SoftmassTech.Controllers
             return RedirectToAction("Index","Employee");
 
         }
+
+        //GET: Employee/Edit
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
+
+
+
+        //POST: Employee/Edit
+        [HttpPost]
+        public IActionResult Edit()
+        {
+
+            return View();
+        }
+        
     }
 }
