@@ -16,6 +16,7 @@ namespace SoftmassTech.Controllers
         }
         public async Task <IActionResult> Index()
         {
+            //Fetching data from database
             var employees = await _employeeRepository.GetAllAsync();
             return View(employees);
         }
