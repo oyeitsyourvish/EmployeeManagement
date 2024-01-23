@@ -14,10 +14,19 @@ namespace SoftmassTech.Controllers
             _employeeRepository = employeeRepository;
             
         }
-        public async Task <IActionResult> Index()
+        public async Task <IActionResult> Index(string searchString)
         {
             //Fetching data from database
             var employees = await _employeeRepository.GetAllAsync();
+
+
+            // using name searching bar creation
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                employees =employees.Where(n=> n.FirstName.Contains(searchString)
+                || n.LastName.Contains(searchString)).ToList();
+            }
+
             return View(employees);
         }
 
