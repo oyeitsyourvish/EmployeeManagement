@@ -61,7 +61,8 @@ namespace SoftmassTech.Repositories
                     Email = employee.Email,
                     PhoneNumber=employee.Phone,
                     Address = employee.Address,
-                    IsActive=employee.isActive
+                    IsActive=employee.isActive,
+                    DepartmentId = employee.DepartmentId
 
                 };
                 employeeViewModels.Add(employeeViewModel);
