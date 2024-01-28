@@ -134,3 +134,4 @@ D:\PROGRAMMING\Dot Net\Projects\SoftmassTech\SoftmassTech\obj\Debug\net8.0\refin
 D:\PROGRAMMING\Dot Net\Projects\SoftmassTech\SoftmassTech\obj\Debug\net8.0\SoftmassTech.pdb
 D:\PROGRAMMING\Dot Net\Projects\SoftmassTech\SoftmassTech\obj\Debug\net8.0\SoftmassTech.genruntimeconfig.cache
 D:\PROGRAMMING\Dot Net\Projects\SoftmassTech\SoftmassTech\obj\Debug\net8.0\ref\SoftmassTech.dll
+D:\PROGRAMMING\Dot Net\Projects\SoftmassTech\SoftmassTech\obj\Debug\net8.0\SoftmassTech.sourcelink.json

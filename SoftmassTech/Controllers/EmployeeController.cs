@@ -14,7 +14,7 @@ namespace SoftmassTech.Controllers
             _employeeRepository = employeeRepository;
             
         }
-        public async Task <IActionResult> Index(string searchString)
+        public async Task <IActionResult> Index(string searchString, string sortOrder)
         {
             //Fetching data from database
             var employees = await _employeeRepository.GetAllAsync();
@@ -25,6 +25,31 @@ namespace SoftmassTech.Controllers
             {
                 employees =employees.Where(n=> n.FirstName.Contains(searchString)
                 || n.LastName.Contains(searchString)|| n.Gender.Contains(searchString) || n.PhoneNumber.Contains(searchString)).ToList();
+            }
+
+
+            // SORTING THE DATA 
+            // ViewData["CurrentSort"] = sortOrder;
+            //sorting data by name
+            ViewData["NameSortParam"] = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            //sorting data by DOB
+            ViewData["DateOfBirthSortParm"] = sortOrder == "date_asc" ? "date_desc" : "date_asc";
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    employees = employees.OrderByDescending(e => e.FirstName).ToList();
+                    break;
+
+                case "date_asc":
+                    employees = employees.OrderBy(s => s.DateOfBirth).ToList();
+                    break;
+                case "date_desc":
+                    employees = employees.OrderByDescending(s => s.DateOfBirth).ToList();
+                    break;
+
+                default:
+                    employees = employees.OrderBy(e => e.FirstName).ToList();
+                    break;
             }
 
             return View(employees);
