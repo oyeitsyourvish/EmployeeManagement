@@ -26,7 +26,7 @@
                 <thead>
                     <tr>
                         <th scope="col">EmpId</th>
-                        <th scope="col"><a class="text-dark" asp-controller="Employee" asp-action="Index" asp-route-sortOrder=@ViewData["NameSortParam"]>FirstName</a></th>
+                        <th scope="col"><a class="text-dark" asp-controller="Employee" asp-action="Index" asp-route-sortOrder=@ViewData["NameSortParam"]><i class="link-underline link-underline-opacity-0 bi-sort-alpha-down">FirstName</i></a></th>
                         <th scope="col">LastName</a></th>
                         <th scope="col"><a class="text-dark" asp-controller="Employee" asp-action="Index" asp-route-sortOrder=@ViewData["DateOfBirthSortParm"]>DateOfBirth</a></th>
                         <th scope="col">Gender</th>
@@ -71,40 +71,28 @@
                 <nav>
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                            <a class="page-link text-black" asp-route-pageNumber="1"
-                               asp-route-sortOrder="@ViewData["CurrentSort"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                            <a class="page-link text-black">
                                 <span>First</span>
                             </a>
                         </li>
 
                         <li class="page-item">
-                            <a class="page-link text-black"
-                               asp-route-sortOrder="@ViewData["CurrentSort"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                            <a class="page-link text-black">
                                 <span>Previous</span>
                             </a>
                         </li><li class="page-item">
-                            <a class="page-link text-black"
-                               asp-route-sortOrder="@ViewData["CurrentSort"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">1</a>
+                            <a class="page-link text-black">1</a>
                         </li><li class="page-item">
-                            <a class="page-link text-black"
-                               asp-route-sortOrder="@ViewData["CurrentSort"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">2</a>
+                            <a class="page-link text-black">2</a>
                         </li>
 
                         <li class="page-item">
-                            <a class="page-link text-black"
-                               asp-route-sortOrder="@ViewData["CurrentSort"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                            <a class="page-link text-black">
                                 <span>Next</span>
                             </a>
                         </li>
                         <li class="page-item">
-                            <a class="page-link text-black"
-                               asp-route-sortOrder="@ViewData["CurrentSort"]"
-                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                            <a class="page-link text-black">
                                 <span>Last</span>
                             </a>
                         </li>
