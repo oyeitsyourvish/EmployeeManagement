@@ -62,4 +62,56 @@
 
             </table>
         </div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+                <nav>
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item">
+                            <a class="page-link text-black" asp-route-pageNumber="1"
+                               asp-route-sortOrder="@ViewData["CurrentSort"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                <span>First</span>
+                            </a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link text-black"
+                               asp-route-sortOrder="@ViewData["CurrentSort"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                <span>Previous</span>
+                            </a>
+                        </li><li class="page-item">
+                            <a class="page-link text-black"
+                               asp-route-sortOrder="@ViewData["CurrentSort"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">1</a>
+                        </li><li class="page-item">
+                            <a class="page-link text-black"
+                               asp-route-sortOrder="@ViewData["CurrentSort"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">2</a>
+                        </li>
+
+                        <li class="page-item">
+                            <a class="page-link text-black"
+                               asp-route-sortOrder="@ViewData["CurrentSort"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                <span>Next</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link text-black"
+                               asp-route-sortOrder="@ViewData["CurrentSort"]"
+                               asp-route-currentFilter="@ViewData["CurrentFilter"]">
+                                <span>Last</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
