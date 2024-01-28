@@ -28,14 +28,23 @@ namespace SoftmassTech.Controllers
             }
 
 
-            // Sorting the data  by name 
-           // ViewData["CurrentSort"] = sortOrder;
-           
-            //ViewData["NameSortParam"] = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            // SORTING THE DATA 
+            // ViewData["CurrentSort"] = sortOrder;
+            //sorting data by name
+            ViewData["NameSortParam"] = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            //sorting data by DOB
+            ViewData["DateOfBirthSortParm"] = sortOrder == "date_asc" ? "date_desc" : "date_asc";
             switch (sortOrder)
             {
                 case "name_desc":
                     employees = employees.OrderByDescending(e => e.FirstName).ToList();
+                    break;
+
+                case "date_asc":
+                    employees = employees.OrderBy(s => s.DateOfBirth).ToList();
+                    break;
+                case "date_desc":
+                    employees = employees.OrderByDescending(s => s.DateOfBirth).ToList();
                     break;
 
                 default:

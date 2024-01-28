@@ -26,9 +26,9 @@
                 <thead>
                     <tr>
                         <th scope="col">EmpId</th>
-                        <th scope="col"><a class="text-dark" asp-controller="Employee" asp-action="Index" asp-route-sortOrder="name_desc">FirstName</a></th>
-                        <th scope="col">LastName</th>
-                        <th scope="col">DateOfBirth</th>
+                        <th scope="col"><a class="text-dark" asp-controller="Employee" asp-action="Index" asp-route-sortOrder=@ViewData["NameSortParam"]>FirstName</a></th>
+                        <th scope="col">LastName</a></th>
+                        <th scope="col"><a class="text-dark" asp-controller="Employee" asp-action="Index" asp-route-sortOrder=@ViewData["DateOfBirthSortParm"]>DateOfBirth</a></th>
                         <th scope="col">Gender</th>
                         <th scope="col">Email</th>
                         <th scope="col">PhoneNumber</th>
